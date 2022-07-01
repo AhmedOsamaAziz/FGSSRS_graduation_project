@@ -37,7 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'generic.apps.GenericConfig',
+    'students.apps.StudentsConfig',
+    'employees.apps.EmployeesConfig',
+    'applications.apps.ApplicationsConfig',
+    'rest_framework',
 ]
+REST_FRAMEWORK = {}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,9 +81,18 @@ WSGI_APPLICATION = 'premium_flow_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'premium_flow',
+        'USER': 'dev',
+        'PASSWORD': 'dev',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
+
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 
 
