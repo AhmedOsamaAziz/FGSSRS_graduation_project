@@ -26,7 +26,10 @@ class Student(models.Model):
     # One To Many Relashionship --> ForeignKey
     study_type_id = models.ForeignKey(Study_Type, on_delete=models.PROTECT, related_name='students')
     study_specialize_id = models.ForeignKey(Study_Specialize, on_delete=models.PROTECT,related_name='students')
-    person_id = models.ForeignKey(Person,on_delete=models.PROTECT,related_name='students')
+    # person_id = models.ForeignKey(Person,on_delete=models.PROTECT,related_name='students')
+    email = models.EmailField(max_length=100, null=True, blank=True)
+    mobile = models.CharField(max_length=14, null=True, blank=True)
+    national_id = models.CharField(max_length=14, null=True, blank=True)
 
     def __str__(self):
-            return self.name
+        return self.name

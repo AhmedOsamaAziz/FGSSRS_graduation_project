@@ -37,14 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'generic.apps.GenericConfig',
     'students.apps.StudentsConfig',
     'employees.apps.EmployeesConfig',
     'applications.apps.ApplicationsConfig',
+    
     'rest_framework',
+    'django_filters',
 ]
-REST_FRAMEWORK = {}
 
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -82,7 +87,7 @@ WSGI_APPLICATION = 'premium_flow_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'premium_flow',
+        'NAME': 'premium_flow_live',
         'USER': 'dev',
         'PASSWORD': 'dev',
         'HOST': 'localhost',

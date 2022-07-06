@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from urllib import response
 from django.http.response import JsonResponse 
-from .models import Student
+from .models import Student, Study_Specialize, Study_Type
 from rest_framework.decorators import api_view
-from .serializers import  Studentseializers   
+from .serializers import  Studentseializers  , StudySpecializeSerializer, StudyTypeSerializer 
 from rest_framework.response import Response
 from rest_framework import status , filters
 from rest_framework import generics #, mixins, viewsets 
@@ -23,6 +23,17 @@ class Student_PK(generics.RetrieveUpdateDestroyAPIView):
     # Must be named 'serializer_class'
     serializer_class=Studentseializers
 
+class StudySpecialize_List(generics.ListCreateAPIView):
+    # Must be named 'queryset'
+    queryset=Study_Specialize.objects.all()
+    # Must be named 'serializer_class'
+    serializer_class=StudySpecializeSerializer
+
+class StudyType_List(generics.ListCreateAPIView):
+    # Must be named 'queryset'
+    queryset=Study_Type.objects.all()
+    # Must be named 'serializer_class'
+    serializer_class=StudyTypeSerializer
 
 
 # # Create your views here.
