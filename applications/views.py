@@ -145,7 +145,6 @@ def insert_application_document(request):
 
         if document.id is not None:
             return Response(status=status.HTTP_200_OK, data=serializer.data)
-
         return Response(status=status.HTTP_400_BAD_REQUEST, data=serializer.errors)
 
 

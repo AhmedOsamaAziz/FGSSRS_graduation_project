@@ -33,6 +33,7 @@ class Studentseializers(serializers.ModelSerializer):
             'email',
             'mobile',
             'national_id',
+            'applications'
             ]
 
 

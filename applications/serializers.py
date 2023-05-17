@@ -51,8 +51,8 @@ class CycleSerializer(serializers.ModelSerializer):
 class CycleStageRouteSerializer(serializers.ModelSerializer):
     class Meta:
         model = CycleStageRoute
-        fields = '__all__'
-        depth = 2
+        fields = '__all__', ''
+        depth = 1
 
 
 class PostponeCourseSerializer(serializers.ModelSerializer):
